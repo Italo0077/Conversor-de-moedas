@@ -10,9 +10,10 @@ import com.google.gson.Gson;
 import modelo.Moeda;
 
 public class ConsultaMoeda {
-    public Moeda buscarMoeda(String moeda) {
+    public Moeda buscarMoeda(String moedaDe, String moedaPara, double valor) {
 
-        URI uri = URI.create("https://v6.exchangerate-api.com/v6/484a1adc9e8e4f178fc41c22/pair/" + moeda);
+        URI uri = URI.create("https://v6.exchangerate-api.com/v6/484a1adc9e8e4f178fc41c22/pair/" + moedaDe + "/"
+                + moedaPara + "/" + valor);
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(uri)
