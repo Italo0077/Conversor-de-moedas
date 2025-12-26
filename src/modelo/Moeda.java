@@ -1,7 +1,6 @@
 package modelo;
 
 public record Moeda(
-    String base_code, double USD, double EUR, double BRL, double GBP, double JPY, double CAD
-) {
+        String base_code, String target_code, double conversion_rate, double conversion_result) {
 
 }
