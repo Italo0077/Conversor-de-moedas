@@ -1,6 +1,8 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import controle.ConsultaMoeda;
+import exception.ErroConversao;
 import modelo.Moeda;
 
 public class Main {
@@ -22,8 +24,8 @@ public class Main {
                         "\n6 - USD - dolar canadense (Canada)" +
                         "\n0 - Sair - sair da aplicação");
                 seletorOpcao = leitura.nextInt();
-                if (seletorOpcao == 0 | seletorOpcao > 6)
-                    return;
+                if (seletorOpcao <= 0 | seletorOpcao > 6)
+                    break;
                 moedaAtual = consultaMoeda.seletorMoeda(seletorOpcao);
 
                 System.out.println("Escolha para qual Moeda deseja converter:" +
@@ -35,8 +37,8 @@ public class Main {
                         "\n6 - USD - dolar canadense (Canada)" +
                         "\n0 - Sair - sair da aplicação");
                 seletorOpcao = leitura.nextInt();
-                if (seletorOpcao == 0 | seletorOpcao > 6)
-                    return;
+                if (seletorOpcao <= 0 | seletorOpcao > 6)
+                    break;
                 moedaConversao = consultaMoeda.seletorMoeda(seletorOpcao);
 
                 System.out.println("Digite o valor da conversão");
@@ -44,7 +46,7 @@ public class Main {
 
                 Moeda moeda = consultaMoeda.buscarMoeda(moedaAtual, moedaConversao, valorDaConversao);
                 System.out.println("\nValor da conversão de " + moedaAtual + " Para " + moedaConversao + " é de: "
-                        + moeda.conversion_result()+"\n");
+                        + String.format("%.2f",moeda.conversion_result()) + "\n");
 
                 System.out.println("Deseja fazer outra conversão? " +
                         "\n1 - Sim" +
@@ -54,9 +56,12 @@ public class Main {
                     break;
                 }
             }
-        } catch (Exception e) {
-            System.out.println("Digite um valor válido");
+        } catch (ErroConversao e) {
+            System.out.println("Ocorreu um erro inesperado:" + e.getMessage());
+        } catch (InputMismatchException e) {
+            System.out.println("DIGITE APENAS NÚMEROS");
         }
 
+        System.out.println("Aplicação finalizada");
     }
 }

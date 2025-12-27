@@ -6,10 +6,11 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+// import com.google.gson.JsonElement;
+// import com.google.gson.JsonObject;
+// import com.google.gson.JsonParser;
 
+import exception.ErroConversao;
 import modelo.Moeda;
 
 public class ConsultaMoeda {
@@ -20,7 +21,6 @@ public class ConsultaMoeda {
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(uri)
-                .GET()
                 .build();
         try {
             HttpResponse<String> reponse = HttpClient
@@ -32,7 +32,7 @@ public class ConsultaMoeda {
             return new Gson().fromJson(reponse.body(), Moeda.class);
 
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao consulta moeda");
+            throw new ErroConversao("Erro ao consulta moeda");
         }
     }
 
