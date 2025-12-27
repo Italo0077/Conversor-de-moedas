@@ -1,7 +1,16 @@
-# Desafio Conversor de Moedas
+# Conversor de moedas
+
+## Descrição
+Aplicação que converte moeda para outras moedas de escolha do usuário.
+
 ## 🔨 Objetivos do projeto
 
 - Desenvolver um Conversor de Moedas que ofereça interação textual (via console) com os usuários, proporcionando no mínimo 6 opções distintas de conversões de moedas em um menu.
+
+## 🔨 Ferramentas e bibliotecas
+- Linguagem de programção usado foi o ``` Java ```
+- Foi suado biblioteca  ``` Gson ```. Essa biblioteca não vem no java padrão é uma biblioteca externa. Ele converte dados do formato JSON para objetos
+
 
 ## ⭐ Funcinamento da aplicação
 - A aplicação funciona da seguinte maneira.
@@ -14,8 +23,8 @@
     ![alt text](image-2.png)
     sempre vai vir com duas casas decimais
 
-## Desafios na exceções de erros
-
+## Desafios no desenvolvimento
+### excessões de erros
 - Tive um pouco de dificuldade nas exceções de erros na parte de digitação de usuário, como digitar um número negativo ou digitar letras.
     - A solução que coloquei foi colocar uma condição de numerção de 0 a 6.
 - Tive um pouco de dificuldade na hora de fazer a conversão para que o resultado esteja nas casas decimais.
